@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "555470149295",
+    "firebase_url": "https://cis3334-unit12-firebase-2019-b.firebaseio.com",
+    "project_id": "cis3334-unit12-firebase-2019-b",
+    "storage_bucket": "cis3334-unit12-firebase-2019-b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555470149295:android:f4188d76291ddc21",
+        "android_client_info": {
+          "package_name": "edu.css.cis3334_unit12_firebase_2019"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555470149295-110derukoc90oit59ctphva9d6uetggd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.css.cis3334_unit12_firebase_2019",
+            "certificate_hash": "9a8d4dac71ed01fb77765b9c4698117b2ef65ef1"
+          }
+        },
+        {
+          "client_id": "555470149295-l399754kr3pd23thvjnea8cjsempon39.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.css.cis3334_unit12_firebase_2019",
+            "certificate_hash": "ca81a13b656d0fc2027f216289e926438d827936"
+          }
+        },
+        {
+          "client_id": "555470149295-n6auija869l0le39e31fll864tg7ph3e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyv_w2uxgPows6ECrbjzXZSXaVAnT7Wto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555470149295-n6auija869l0le39e31fll864tg7ph3e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

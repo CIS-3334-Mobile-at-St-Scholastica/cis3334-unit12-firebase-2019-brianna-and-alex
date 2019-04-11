@@ -40,13 +40,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myDbRef = database.getReference("cis3334-unit12-firebase-2019-b");
-
-        myDbRef.child("Favorite Pet Votes").setValue("Hello");
 
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
@@ -67,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
         buttonCreateLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.d("CIS3334", "Create Account ");
-                createAccount(editTextEmail.getText().toString(), editTextPassword.getText().toString());
+                String email = editTextEmail.getText().toString();
+                String password = editTextPassword.getText().toString();
+                createAccount(email, password);
             }
         });
 
@@ -118,20 +119,34 @@ public class MainActivity extends AppCompatActivity {
                         // ...
                     }
                 });
-        Toast.makeText(getApplicationContext(), "Create Account not implemented yet !!! ", Toast.LENGTH_LONG).show();
 
     }
 
     private void signIn(String email, String password){
 
-        Toast.makeText(getApplicationContext(), "signIn not implemented yet !!! ", Toast.LENGTH_LONG).show();
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("CIS 3334", "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("CIS 3334", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        // ...
+                    }
+                });
 
     }
 
     private void signOut () {
-
-        Toast.makeText(getApplicationContext(), "signOut not implemented yet !!! ", Toast.LENGTH_LONG).show();
-
+        mAuth.signOut();
     }
 
     private void googleSignIn() {
