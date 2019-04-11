@@ -48,31 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         myDbRef.child("Favorite Pet Votes").setValue("Hello");
 
-
-        // Write a message to the database
-        //FirebaseDatabase database = FirebaseDatabase.getInstance();
-        //DatabaseReference myRef = database.getReference("cis3334-unit12-firebase-2019-b:");
-
-//        myRef.setValue("Hello, World!");
-//
-//
-//        // Read from the database
-//        myRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//                String value = dataSnapshot.getValue(String.class);
-//                Log.d("CIS 3334 ", "Value is: " + value);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//                Log.w("CIS 3334 ", "Failed to read value.", error.toException());
-//            }
-//        });
-
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
@@ -131,13 +106,13 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("CIS 3334", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("CIS 3334", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
+                            Toast.makeText(MainActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            updateUI(null);
+
                         }
 
                         // ...
@@ -165,12 +140,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        //updateUI(currentUser);
+        if (currentUser != null) {
+            // User is signed in
+            Log.d("CIS3334", "onAuthStateChanged:signed_in:" + currentUser.getUid());
+            Toast.makeText(MainActivity.this, "User Signed In", Toast.LENGTH_LONG).show();
+            textViewStatus.setText("Signed In");
+        } else {
+            // User is signed out
+            Log.d("CIS3334", "onAuthStateChanged:signed_out");
+            Toast.makeText(MainActivity.this, "User Signed Out", Toast.LENGTH_LONG).show();
+            textViewStatus.setText("Signed Out");
+        }
     }
 
 }
