@@ -31,6 +31,14 @@
           }
         },
         {
+          "client_id": "555470149295-0j4eobmq5c9nhseqklbg4slatkuc3u9o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.css.cis3334_unit12_firebase_2019",
+            "certificate_hash": "d9ba9c07a9ce5ca3f096e6986c5f1db06476c1fd"
+          }
+        },
+        {
           "client_id": "555470149295-n6auija869l0le39e31fll864tg7ph3e.apps.googleusercontent.com",
           "client_type": 3
         }
