@@ -14,6 +14,10 @@ public class ChatActivity extends AppCompatActivity {
     EditText etMessage;
     TextView tvMsgList;
 
+
+    /**
+     * This method is called when the activity is first created
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +28,7 @@ public class ChatActivity extends AppCompatActivity {
         etMessage = findViewById(R.id.editTextMessage);
         tvMsgList = findViewById(R.id.textViewMsgList);
 
+        //Gets the login and password that user entered and clears it for the further entrees.
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +43,7 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+        // Logs out the user
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
